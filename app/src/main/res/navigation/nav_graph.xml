@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.madrapps.android_hilt_playground.ListFragment"
+        android:name="com.madrapps.android_hilt_playground.list.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" />
 </navigation>
