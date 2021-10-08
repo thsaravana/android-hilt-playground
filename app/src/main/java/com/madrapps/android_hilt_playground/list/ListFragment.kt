@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import com.madrapps.android_hilt_playground.databinding.FragmentListBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ListFragment : Fragment() {
@@ -16,8 +18,12 @@ class ListFragment : Fragment() {
     private val binding: FragmentListBinding
         get() = _binding!!
 
+    @ListFragmentQualifier
+    @Inject
+    lateinit var factory: AbstractSavedStateViewModelFactory
+
     private val viewModel: ListViewModel by viewModels<ListViewModelImpl>(
-        factoryProducer = { ListViewModelFactory(this, arguments) }
+        factoryProducer = { factory }
     )
 
     override fun onCreateView(
