@@ -22,7 +22,7 @@ class ListFragment : Fragment() {
     @Inject
     lateinit var factory: AbstractSavedStateViewModelFactory
 
-    private val viewModel: ListViewModel by viewModels<ListViewModelImpl>(
+    private val viewModel: ListViewModel by viewModels(
         factoryProducer = { factory }
     )
 
